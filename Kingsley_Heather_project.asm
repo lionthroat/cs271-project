@@ -2,6 +2,7 @@
 ; Description:  This program get a number from the user and calculates the fibonacci series.
 INCLUDE Irvine32.inc
 
+; the macro checks if the hit card is available in the deck
 errorcheck macro hit_card, ava_card
     
     ;mov	EDX, OFFSET prompt		
@@ -58,7 +59,7 @@ cards    dword    13  DUP(?)
 
 .code
 main PROC
-; Greet the user and ask the user to enter a fibonnaci term
+; fill in the each element in the array with 4
         mov EDI, 0
 		mov EAX, 4
 		mov cards[EDI], EAX
@@ -95,7 +96,7 @@ main PROC
 	
 main ENDP
 
-
+; the procedure reduces the card by one based on the hitcard
 Check PROC
     mov EDI, 0
 	mov ECX, 13
