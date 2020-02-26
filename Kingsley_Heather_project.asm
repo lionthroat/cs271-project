@@ -1,5 +1,5 @@
-;TITLE Dog years     (Kingsley_chukwu_exercise_week_6.asm)
-; Description:  This program get a number from the user and calculates the fibonacci series.
+;TITLE     (Kingsley_heather_project.asm)
+
 INCLUDE Irvine32.inc
 
 ; the macro checks if the hit card is available in the deck
