@@ -31,7 +31,7 @@ Losing the game (and being abducted):
 ![You Lost](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/you_lost.png)  
 
 ##### Procedures:
-Procedure - Description
+Procedure | Description
 ------------ | -------------
 Main Procedure | drives other procedures
 Title_Screen | displays graphical title screen
@@ -40,7 +40,8 @@ Start_Hand | empty player/dealer hands, reset card deck
 Draw_Card | add one card to player or dealer hand
 Evaluate_Hand | evaluate sum of points values for all cards in one hand
 Show_Game | set up "gameboard" display with scorebox
-Check_Win | check for blackjack/bust conditions
+Check_Win | check for blackjack/bust conditions  
+
 9.	Print_Hand | print out all cards from one hand in a row
 10.	Face_Cards | helper procedure to display value on face cards
 11. Card_Spacer | helper procedure to space cards from left edge of terminal
