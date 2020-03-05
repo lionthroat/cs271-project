@@ -1,10 +1,10 @@
 ## CS 271: Computer Architecture and Assembly Language Programming
 ### Final Project in MASM x86 - Game Development Option
 
-Authors:    Kingsley Chukwu and Heather North DiRuscio
-Game:    Blackjack in Space
-Oregon State University, Winter 2020 Term
-Submitted: March 6, 2020
+Authors: Kingsley Chukwu and Heather North DiRuscio  
+Game: Blackjack in Space  
+Oregon State University, Winter 2020 Term  
+Submitted: March 6, 2020  
 
 ##### Program Description:
 The game is a simple implementation of blackjack, where the user is the Player, and you play against the computer, which operates as the Dealer. As the Player, you can choose to Hit or Stand on each turn. Hit will result in another card being drawn from the deck of 52, and added to your hand. The gameboard will then redisplay, showing you all of your cards and your new hand subtotal. At this point, your hand will also be evaluated to see if you have achieved Blackjack or gone Bust. Getting 21 points earns you Blackjack and you will get a point, while ending with 22 points or more is Bust and the Dealer will get a point. The cards don't appear to have suits, but there are four of each card value, like a typical deck.
