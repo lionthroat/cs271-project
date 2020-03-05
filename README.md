@@ -1,12 +1,9 @@
 ## CS 271: Computer Architecture and Assembly Language Programming
 ### Final Project in MASM x86 - Game Development Option
 
-##### Authors:    Kingsley Chukwu and Heather North DiRuscio
-##### Game:    Blackjack in Space
-
-Oregon State University,
-Winter 2020 Term
-
+Authors:    Kingsley Chukwu and Heather North DiRuscio
+Game:    Blackjack in Space
+Oregon State University, Winter 2020 Term
 Submitted: March 6, 2020
 
 ##### Program Description:
@@ -41,15 +38,20 @@ Draw_Card | add one card to player or dealer hand
 Evaluate_Hand | evaluate sum of points values for all cards in one hand
 Show_Game | set up "gameboard" display with scorebox
 Check_Win | check for blackjack/bust conditions  
+Print_Hand | print out all cards from one hand in a row
+Face_Cards | helper procedure to display value on face cards
+Card_Spacer | helper procedure to space cards from left edge of terminal
+Player_Turn | player can choose to Hit or Stand
+Dealer_Turn | dealer will decide to Hit or Stand
+Pick_Winner | if both player and dealer Stand, see who has more points
+Game_Over | display won or lost game screen
+Exit_Blackjack | prompt player to play again or quit
 
-9.	Print_Hand | print out all cards from one hand in a row
-10.	Face_Cards | helper procedure to display value on face cards
-11. Card_Spacer | helper procedure to space cards from left edge of terminal
-12.  Player_Turn | player can choose to Hit or Stand
-13.	Dealer_Turn | dealer will decide to Hit or Stand
-14.	Pick_Winner | if both player and dealer Stand, see who has more points
-15.  Game_Over | display won or lost game screen
-16. Exit_Blackjack | prompt player to play again or quit
+##### To Run the Program:
+- You will need Visual Studio with the Visual C++ module installed.
+- Install the Irvine32 Library: http://www.asmirvine.com/gettingStartedVS2019/index.htm
+- Add .asm file to an Irvine Project, which will have the necessary assembler, linker, and libraries.
+- Build and run the project.
 
 ##### Known issues:
 1. Sometimes, Ace cards appear with @ symbol or = symbol instead of expected value "A"
