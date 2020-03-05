@@ -14,35 +14,40 @@ The game is a simple implementation of blackjack, where the user is the Player, 
 
 During gameplay of a hand, you can only see your whole hand and subtotal, and one of the Dealer's cards will appear to be face down. You do not know the value of the Dealer's hand. The Dealer has its own set of behaviors, and will choose whether to Hit or Stand without input from the Player. If you manage to get 10 points (win 10 hands) first, you win, and can take off to explore space! However, if you fail to get 10 points (win 10 hands) before the Dealer does, you will lose the game... and face an uncertain fate.
 
-##### Gameplay Screenshots:
+##### Gameplay Screenshots
 Title Screen:  
-![Title Screen](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/title_screen.png)
+![Title Screen](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/title_screen.png)  
+
 Player with starting hand chooses whether to Hit or Stand:  
-![Gameplay](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/gameplay_1.png)
+![Gameplay](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/gameplay_1.png)  
+
 The Dealer goes Bust:  
-![Dealer_Bust](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/gameplay_2.png)
+![Dealer_Bust](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/gameplay_2.png)  
+
 Winning the game (and taking off in your rocket ship):    
-![You Won](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/you_won.png)
+![You Won](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/you_won.png)  
+
 Losing the game (and being abducted):  
-![You Lost](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/you_lost.png)
+![You Lost](https://github.com/wrongenvelope/cs271-project/blob/master/screenshots/you_lost.png)  
 
 ##### Procedures:
-1. Main Procedure - drives other procedures
-2. Title_Screen - displays graphical title screen
-3. Start_Game - initialize player/dealer points to 0
-4. Start_Hand - empty player/dealer hands, reset card deck
-5. Draw_Card - add one card to player or dealer hand
-6. Evaluate_Hand - evaluate sum of points values for all cards in one hand
-7. Show_Game - set up "gameboard" display with scorebox
-8.	Check_Win - check for blackjack/bust conditions
-9.	Print_Hand - print out all cards from one hand in a row
-10.	Face_Cards - helper procedure to display value on face cards
-11. Card_Spacer - helper procedure to space cards from left edge of terminal
-12.  Player_Turn - player can choose to Hit or Stand
-13.	Dealer_Turn - dealer will decide to Hit or Stand
-14.	Pick_Winner - if both player and dealer Stand, see who has more points
-15.  Game_Over - display won or lost game screen
-16. Exit_Blackjack - prompt player to play again or quit
+Procedure - Description
+Main Procedure | drives other procedures
+Title_Screen | displays graphical title screen
+Start_Game | initialize player/dealer points to 0
+Start_Hand | empty player/dealer hands, reset card deck
+Draw_Card | add one card to player or dealer hand
+Evaluate_Hand | evaluate sum of points values for all cards in one hand
+Show_Game | set up "gameboard" display with scorebox
+Check_Win | check for blackjack/bust conditions
+9.	Print_Hand | print out all cards from one hand in a row
+10.	Face_Cards | helper procedure to display value on face cards
+11. Card_Spacer | helper procedure to space cards from left edge of terminal
+12.  Player_Turn | player can choose to Hit or Stand
+13.	Dealer_Turn | dealer will decide to Hit or Stand
+14.	Pick_Winner | if both player and dealer Stand, see who has more points
+15.  Game_Over | display won or lost game screen
+16. Exit_Blackjack | prompt player to play again or quit
 
 ##### Known issues:
 1. Sometimes, Ace cards appear with @ symbol or = symbol instead of expected value "A"
