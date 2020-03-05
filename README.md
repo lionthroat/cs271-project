@@ -32,6 +32,7 @@ Losing the game (and being abducted):
 
 ##### Procedures:
 Procedure - Description
+------------ | -------------
 Main Procedure | drives other procedures
 Title_Screen | displays graphical title screen
 Start_Game | initialize player/dealer points to 0
