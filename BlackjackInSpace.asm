@@ -49,13 +49,12 @@ TITLE BlackjackInSpace.asm
 ;  16)  Exit_Blackjack	| - prompt player to play again or quit
 ;
 ; Known issues:
-; 1. Sometimes, Ace cards appear with @ symbol or = symbol instead of expected value "A"
-; 2. The dealer's full hand (including face-down card) is not always revealed at the end
+; 1. The dealer's full hand (including face-down card) is not always revealed at the end
 ;    of a hand. It works as intended if a player chooses to Stand, but the flags aren't
 ;    set correctly if they choose Hit.
-; 3. In hands with multiple Aces where the value of the Ace would be reduced from 11 to 1,
+; 2. In hands with multiple Aces where the value of the Ace would be reduced from 11 to 1,
 ;	 only one Ace might be counted. (E.g. a hand with A, 2, A would have a value of 3 instead of 4)
-; 4. Player hands that bust are frequently evaluated to "30" instead of their actual points value.
+; 3. Player hands that bust are frequently evaluated to "30" instead of their actual points value.
 ;    The determination of whether someone has Bust seems correct, but the ending value displayed is not.
 ;
 ; Feature Wishlist:
@@ -229,6 +228,22 @@ ENDM
 								"         Your choice: ",0
 
 
+    card_1      byte   "A",0
+    card_2     byte   "2",0
+    card_3     byte   "3",0
+    card_4     byte   "4",0
+    card_5     byte   "5",0
+    card_6     byte   "6",0
+    card_7    byte   "7",0
+   card_8     byte   "8",0
+   card_9    byte   "9",0
+    card_10     byte   "10",0
+   card_11    byte   "J",0
+   card_12   byte   "Q",0
+   card_13    byte   "K",0
+   disp_card  dword  13  DUP(?)
+
+
 .code
 
 ; =============================================================================================
@@ -239,6 +254,7 @@ ENDM
 ; Registers Changed: none
 ; =============================================================================================
 main proc
+    call Fillcardarray
     call	Randomize						; Sets seed
 
 	initialize_game:
@@ -1042,11 +1058,11 @@ Print_Hand	proc
 		mov		eax, [esi]
 		mov		card, eax
 
-		.if (card > 1) && (card < 11)
-			call WriteDec
-		.else
-			call Face_Cards
-		.endif
+		;.if (card > 1) && (card < 11)
+			;call WriteDec
+		;.else
+		call Face_Cards
+		;.endif
 
 		check_for_spacer:
 			.if	card != 10						; 10 is the only card to need two-digit offset. other cards get a spacer
@@ -1124,11 +1140,11 @@ Print_Hand	proc
 				stringMacro [ ebp + 48 ]		; spacer
 			.endif
 
-		.if (card != 1) && (card < 11)
-			call WriteDec
-		.else
-			call Face_Cards
-		.endif
+		;.if (card != 1) && (card < 11)
+		;	call WriteDec
+		;.else
+		call Face_Cards
+		;.endif
 
 		stringMacro [ ebp + 40 ]		; card slice 3b
 		stringMacro [ ebp + 48 ]		; spacer
@@ -1179,23 +1195,28 @@ Face_Cards proc
 	pushad
 
 	mov eax, card
-	.if card == 11
-		mov edx, offset jack
-		call WriteString
+	dec eax
+	mov ebx, 4
+	mul ebx
+	mov edx, disp_card[eax]
+	call WriteString
+	;.if card == 11
+	;	mov edx, offset jack
+	;	call WriteString
 
-	.elseif card == 12
-		mov edx, offset queen
-		call WriteString
+	;.elseif card == 12
+	;	mov edx, offset queen
+	;	call WriteString
 
-	.elseif card == 13
-		mov edx, offset king
-		call WriteString
+	;.elseif card == 13
+	;	mov edx, offset king
+	;	call WriteString
 
-	.else
-		mov edx, offset ace
-		call WriteString
+	;.else
+	;	mov edx, offset ace
+	;	call WriteString
 
-	.endif
+	;.endif
 
 	popad
 	pop ebp
@@ -1281,4 +1302,35 @@ Exit_Blackjack proc
 	ret 12	
 Exit_Blackjack	ENDP
 
+Fillcardarray PROC
+  pushad
+        mov edx, offset card_1
+		mov disp_card[0], edx
+		mov edx, offset card_2
+		mov disp_card[4], edx
+		mov edx, offset card_3
+		mov disp_card[8], edx
+		mov edx, offset card_4
+		mov disp_card[12], edx
+		mov edx, offset card_5
+		mov disp_card[16], edx
+		mov edx, offset card_6
+		mov disp_card[20], edx
+		mov edx, offset card_7
+		mov disp_card[24], edx
+		mov edx, offset card_8
+		mov disp_card[28], edx
+		mov edx, offset card_9
+		mov disp_card[32], edx
+		mov edx, offset card_10
+		mov disp_card[36], edx
+		mov edx, offset card_11
+		mov disp_card[40], edx
+		mov edx, offset card_12
+		mov disp_card[44], edx
+		mov edx, offset card_13
+		mov disp_card[48], edx
+   popad
+ ret
+Fillcardarray ENDP
 end main
